@@ -28,6 +28,7 @@ const authFormSchema = (type: FormType) => {
   });
 };
 
+// This component handles all authentication on the client side only. No server-side auth checks are performed here.
 const AuthForm = ({ type }: { type: FormType }) => {
   const router = useRouter();
 
