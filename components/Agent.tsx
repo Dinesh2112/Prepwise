@@ -20,15 +20,6 @@ interface SavedMessage {
   role: "user" | "system" | "assistant";
   content: string;
 }
-interface AgentProps {
-  userName: string;
-  userId: string;
-  interviewId?: string;
-  feedbackId?: string;
-  type: string;
-  questions?: string[];
-  profileImage?: string; // <-- add this
-}
 
 const Agent = ({
   userName,
@@ -125,12 +116,6 @@ const Agent = ({
 
   const handleCall = async () => {
     setCallStatus(CallStatus.CONNECTING);
-
-    console.log("VAPI WORKFLOW ID:", process.env.NEXT_PUBLIC_VAPI_WORKFLOW_ID);
-    console.log("VAPI WEB TOKEN:", process.env.NEXT_PUBLIC_VAPI_WEB_TOKEN);
-    console.log("userName:", userName);
-    console.log("userId:", userId);
-    console.log("questions:", questions);
 
     if (type === "generate") {
       await vapi.start(process.env.NEXT_PUBLIC_VAPI_WORKFLOW_ID!, {
