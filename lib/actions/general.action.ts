@@ -11,13 +11,13 @@ export async function createFeedback(params: CreateFeedbackParams) {
     // TODO: Replace with actual AI feedback generation
     const mockFeedback = {
       totalScore: 75,
-      categoryScores: {
-        "Communication Skills": 80,
-        "Technical Knowledge": 70,
-        "Problem-Solving": 75,
-        "Cultural & Role Fit": 80,
-        "Confidence & Clarity": 75,
-      },
+      categoryScores: [
+        { name: "Communication Skills", score: 80, comment: "Great communicator." },
+        { name: "Technical Knowledge", score: 70, comment: "Good technical base." },
+        { name: "Problem Solving", score: 75, comment: "Solid problem-solving skills." },
+        { name: "Cultural Fit", score: 80, comment: "Fits well with team culture." },
+        { name: "Confidence and Clarity", score: 75, comment: "Clear and confident answers." },
+      ],
       strengths: [
         "Good communication skills",
         "Shows enthusiasm for the role",

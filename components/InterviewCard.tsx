@@ -92,14 +92,8 @@ const InterviewCard = async ({
           <DisplayTechIcons techStack={techstack} />
 
           <Button className="btn-primary">
-            <Link
-              href={
-                feedback
-                  ? `/interview/${interviewId}/feedback`
-                  : `/interview/${interviewId}`
-              }
-            >
-              {feedback ? "Check Feedback" : "View Interview"}
+            <Link href={`/interview/${interviewId}/feedback`}>
+              Check Feedback
             </Link>
           </Button>
         </div>

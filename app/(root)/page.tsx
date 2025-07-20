@@ -13,6 +13,33 @@ import {
 async function Home() {
   const user = await getCurrentUser();
 
+  // If not logged in, show sign in/up buttons
+  if (!user) {
+    return (
+      <section className="card-cta">
+        <div className="flex flex-col gap-6 max-w-lg">
+          <h2>Get Interview-Ready with AI-Powered Practice & Feedback</h2>
+          <p className="text-lg">
+            Practice real interview questions & get instant feedback
+          </p>
+          <Button asChild className="btn-primary max-sm:w-full">
+            <Link href="/sign-in">Sign In</Link>
+          </Button>
+          <Button asChild className="btn-secondary max-sm:w-full">
+            <Link href="/sign-up">Sign Up</Link>
+          </Button>
+        </div>
+        <Image
+          src="/robot.png"
+          alt="robo-dude"
+          width={400}
+          height={400}
+          className="max-sm:hidden"
+        />
+      </section>
+    );
+  }
+
   const [userInterviews, allInterview] = await Promise.all([
     getInterviewsByUserId(user?.id!),
     getLatestInterviews({ userId: user?.id! }),
